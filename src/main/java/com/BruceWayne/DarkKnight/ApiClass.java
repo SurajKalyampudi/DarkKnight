@@ -54,16 +54,17 @@ public class ApiClass {
 			@QueryParam("location")String location,@QueryParam("Lead")String Lead,
 			@QueryParam("track")String track)	{
 		
-		StudentImply student=new StudentImply();
+		StudentImply student=new StudentImply();	
 		String response=student.addMessage(mid, name, location, Lead, track);
 		return response;
 		
 }
 	
 	@DELETE
-	@Path("/{meesageid}")
+	@Path("/delete/{meesageid}")
 	@Produces(MediaType.APPLICATION_FORM_URLENCODED)
 	public String deleteMessage(@PathParam("messageid")int id){
+		System.out.println(id);
 		StudentImply student=new StudentImply();
 		student.Delete(id);
 		return"Successfully deleted";
